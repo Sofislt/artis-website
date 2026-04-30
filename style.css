@@ -1,32 +1,124 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
     font-family: sans-serif;
 }
 
+html {
+    overflow-y: scroll;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 100px;
+    background: #01030A;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
 .container {
+    margin-top: 120px;
     width: 100%;
     height: 100vh;
-    background: #42455A;
+    background: #060a16;
 }
 
 .menu ul {
-    display: inline-flex;
+    width: 100vw;
+    display: flex;
+    align-items: row;
     margin: 50px;
 }
 
 .menu ul li {
     list-style: none;
-    margin: 0 20px;
-    color: #b2b1b1;
-    cursor: pointer;
+    position: relative;
+    font-size: 1.1em;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+}
+
+.logo {
+    height: 70px;
+    user-select: none;
 }
 
 .logo img {
     width: 100px;
-    transform: rotate(-90deg);
-    margin-top: -75px;
-    margin-right: 48px;
+}
+
+.navigation {
+    display: flex;
+    align-items: center;
+}
+
+.navigation a:first-child {
+    margin-left: 0;
+}
+
+.navigation a {
+    position: relative;
+    font-size: 1.1em;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+}
+
+.navigation a:not(.btn-login)::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    border-radius: 5px;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .5s;
+}
+
+.navigation a:not(.btn-login):hover::after {
+    transform-origin: left;
+    transform: scaleX(1);
+}
+
+.navigation .btn-login {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 130px;
+    height: 50px;
+    
+    background: transparent;
+    border: 2px solid #fff;
+    /* outline: none; */
+    text-decoration: none;
+    border-radius: 6px;
+    cursor: pointer;
+    
+    font-size: 1.1em;
+    color: #fff;
+    font-weight: 500;
+    
+    margin-left: 40px;
+    transition: .5s;
+}
+
+.navigation .btn-login:hover {
+    background: #fff;
+    color: #162938;
 }
 
 .active {
@@ -41,7 +133,7 @@
     color: #fff;
     border: 2px solid transparent;
     border-radius: 20px;
-    background-image: linear-gradient(#42455a, #42455a), radial-gradient(circle at top left, #fd00da, #19d7f8);
+    background-image: linear-gradient(#060a16, #060a16), radial-gradient(circle at top left, #fd00da, #19d7f8);
     background-origin: border-box;
     background-clip: content-box, border-box;
 }
@@ -51,13 +143,17 @@
     padding: 8px 22px;
 }
 
+body {
+    display: block;
+    background-color: #060a16;
+}
+
 .banner {
     width: 100%;
     height: 70%;
     position: relative;
     color: #fff;
-
-    background: linear-gradient(to right, #42455A 40%, rgba(248,249,250,0) 70%), url('assets/pintora.jpg');
+    background: linear-gradient(to right, #060a16 40%, rgba(248,249,250,0) 70%), url('assets/pintora.jpg');
     background-position: right center;
     background-repeat: no-repeat;
 }
