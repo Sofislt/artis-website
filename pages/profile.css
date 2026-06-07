@@ -1,0 +1,398 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Open Sans", sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+html {
+    overflow-y: scroll;
+}
+
+header:not(.profile-header) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 100px;
+    background: #01030A;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.logo {
+    height: 70px;
+    user-select: none;
+}
+
+.logo img {
+    width: 100px;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding-top: 130px; 
+
+    background-color: #fafafa;
+    color: #262626;
+}
+
+.foto {
+    display: flex;
+    justify-self: center;
+    width: 100px;
+    border-radius: 100px;
+    border: 2px solid #fff;
+}
+
+.logo {
+    font-size: 2em;
+    color: #fff;
+    user-select: none;
+}
+
+.navigation {
+    display: flex;
+    align-items: center;
+}
+
+.navigation a:first-child {
+    margin-left: 0;
+}
+
+.navigation a {
+    position: relative;
+    font-size: 1.1em;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+}
+
+.navigation a:not(.btn-login)::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    border-radius: 5px;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .5s;
+}
+
+.navigation a:not(.btn-login):hover::after {
+    transform-origin: left;
+    transform: scaleX(1);
+}
+
+.navigation .btn-login {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 130px;
+    height: 50px;
+    
+    background: transparent;
+    border: 2px solid #fff;
+    /* outline: none; */
+    text-decoration: none;
+    border-radius: 6px;
+    cursor: pointer;
+    
+    font-size: 1.1em;
+    color: #fff;
+    font-weight: 500;
+    
+    margin-left: 40px;
+    transition: .5s;
+}
+
+.navigation .btn-login:hover {
+    background: #fff;
+    color: #162938;
+}
+
+.navigation .btnLogin-popup {
+    width: 130px;
+    height: 50px;
+    background: transparent;
+    border: 2px solid #fff;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: #fff;
+    font-weight: 500;
+    transition: .5s;
+}
+
+.navigation .btnLogin-popup:hover {
+    background: #fff;
+    color: #162938;
+}
+
+.profile-container {
+    max-width: 935px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Cabeçalho do Perfil */
+.profile-header {
+    display: flex;
+    margin-bottom: 44px;
+    padding-bottom: 20px;
+}
+
+.profile-photo-container {
+    flex-grow: 1;
+    flex-basis: 0;
+    display: flex;
+    justify-content: center;
+    margin-right: 30px;
+}
+
+.photo-label {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+    border: 1px solid #dbdbdb;
+    background-color: #f0f0f0;
+}
+
+.photo-label img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.photo-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 600;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.photo-label:hover .photo-overlay {
+    opacity: 1;
+}
+
+.profile-info {
+    flex-grow: 2;
+    flex-basis: 0;
+}
+
+.info-top {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.username {
+    font-size: 28px;
+    font-weight: 300;
+    margin-right: 20px;
+}
+
+.edit-btn {
+    background-color: transparent;
+    border: 1px solid #dbdbdb;
+    padding: 5px 9px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.stats-list {
+    display: flex;
+    list-style: none;
+    margin-bottom: 20px;
+    font-size: 16px;
+    gap: 40px;
+}
+
+.stats-list li {
+    display: flex;
+    flex-direction: column; /* Alinha o número em cima e o texto embaixo */
+    align-items: center;    /* Centraliza os dois horizontalmente um com o outro */
+    text-align: center;
+    color: #8e8e8e;         /* Deixa a palavra com um cinza suave estilo Instagram */
+    font-size: 14px;
+}
+
+.stat-count {
+    font-weight: 600;
+    color: #262626;         /* Deixa o número preto e em destaque */
+    font-size: 16px;
+    margin-bottom: 2px;     /* Cria um micro espaço entre o número e o texto */
+}
+
+.bio {
+    width: 100%;
+    margin-top: 15px;
+}
+
+.bio-add-btn {
+    width: 100%;                  /* Força o botão a ocupar 100% da largura do container */
+    background-color: transparent; /* Fundo transparente */
+    color: #000000;                /* Cor do "+" preta */
+    border: 1px solid #000000; 
+    box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.3);    /* Borda preta fina */
+    border-radius: 4px;            /* Leve arredondamento nos cantos (estilo Instagram) */
+    padding: 2px 0;                /* Espaçamento interno para dar altura ao botão */
+    font-size: 18px;               /* Tamanho do "+" */
+    cursor: pointer;
+    
+    /* Flexbox para garantir o "+" centralizado cirurgicamente */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* Transição suave para quando o usuário passar o mouse */
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Abas */
+.profile-tabs {
+    border-top: 1px solid #dbdbdb;
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+}
+
+.tab-btn {
+    background: none;
+    border: none;
+    border-top: 1px solid transparent;
+    color: #8e8e8e;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 1px;
+    padding: 18px 0;
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    margin-top: -1px;
+}
+
+.tab-btn.active {
+    color: #262626;
+    border-top: 1px solid #262626;
+}
+
+/* Painéis de Conteúdo */
+.tab-panel {
+    display: none;
+    padding-top: 20px;
+}
+
+.tab-panel.active {
+    display: block;
+}
+
+/* Grid de Fotos Estilo Instagram */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    margin-bottom: 40px;
+}
+
+.grid-item {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    background-color: #efefef;
+    overflow: hidden;
+    border: 1px solid #dbdbdb;
+}
+
+.grid-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.empty-state {
+    grid-column: span 3;
+    text-align: center;
+    padding: 40px;
+    color: #8e8e8e;
+    font-size: 18px;
+}
+
+.floating-btn {
+    position: fixed;         /* Fixa o elemento em relação à tela do navegador, ignorando a rolagem */
+    bottom: 30px;            /* Distância de 30px do fundo da tela */
+    right: 30px;             /* Distância de 30px da lateral direita */
+    width: 60px;             /* Largura do botão */
+    height: 60px;            /* Altura idêntica para manter um círculo perfeito */
+    border-radius: 50%;      /* Faz o botão ficar completamente redondo */
+    background-color: #262626; /* Cor preta padrão (combina com o botão da bio) */
+    color: #ffffff;          /* Cor do "+" branca */
+    border: none;
+    font-size: 28px;         /* Deixa o "+" grande e visível */
+    font-weight: 300;        /* Um visual mais fino e elegante para o "+" */
+    cursor: pointer;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Sombra para dar efeito de flutuação/profundidade */
+    
+    /* Centraliza o "+" perfeitamente no meio do círculo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    line-height: 1;           /* Reseta a altura da linha do texto */
+    padding: 0;               /* Remove qualquer espaçamento interno padrão de botões */
+    padding-bottom: 4px;
+    
+    z-index: 9999;           /* Garante que ele fique por cima de absolutamente tudo na página */
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+/* Efeito ao passar o mouse */
+.floating-btn:hover {
+    transform: scale(1.1);   /* Dá um leve "zoom" ao passar o mouse */
+    background-color: #404040;
+}
+
+/* Responsividade Mobile */
+@media (max-width: 735px) {
+    .profile-header {
+        padding: 0 16px;
+        margin-bottom: 24px;
+    }
+    .photo-label {
+        width: 77px;
+        height: 77px;
+    }
+    .username {
+        font-size: 22px;
+    }
+    .stats-list {
+        display: none; /* Em telas muito pequenas o Instagram move as stats para baixo */
+    }
+    .grid-container {
+        gap: 3px;
+    }
+}

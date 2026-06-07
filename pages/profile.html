@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="profile.css">
+    <title>Perfil</title>
+</head>
+<body>
+    <header>
+        <div class="logo"><img src="../assets/olho-que-ve-tudo.png" alt="Logo Artis"></div>
+        <nav class="navigation">
+            <a href="../index.html">Home</a>
+            <a href="explore.html">Explore</a>
+            <a href="feed.html">Feed</a>
+            <a href="profile.html">Perfil</a>
+            <a href="exercise.html">Exercício</a>
+            <a href="sign-up.html" class="btn-login">Login</a>
+        </nav>
+    </header>
+
+    <div class="profile-container">
+        <header class="profile-header">
+            <div class="profile-photo-container">
+                <label for="upload-photo" class="photo-label">
+                    <img id="profile-img" src="https://tse3.mm.bing.net/th/id/OIP.Zerpda1XjYLSqDSyBc5_HwHaHa?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Foto de Perfil">
+                    <div class="photo-overlay">Alterar</div>
+                </label>
+                <input type="file" id="upload-photo" accept="image/*" style="display: none;">
+            </div>
+
+            <section class="profile-info">
+                <div class="info-top">
+                    <h2 class="username">seu_usuario</h2>
+                    <button class="edit-btn">Editar perfil</button>
+                </div>
+
+                <ul class="stats-list">
+                    <li><span class="stat-count" id="count-posts">0</span> publicações</li>
+                    <li><span class="stat-count">0</span> seguidores</li>
+                    <li><span class="stat-count">0</span> seguindo</li>
+                </ul>
+
+                <div class="bio">
+                    <button class="bio-add-btn">+</button>
+                </div>
+            </section>
+        </header>
+
+        <nav class="profile-tabs">
+            <button class="tab-btn active" onclick="switchTab('posts')">
+                POSTS
+            </button>
+            <button class="tab-btn" onclick="switchTab('portfolio')">
+                PORTFÓLIO
+            </button>
+        </nav>
+
+        <main class="tabs-content">
+            <div id="tab-posts" class="tab-panel active">
+                <div class="grid-container" id="grid-posts">
+                    <div class="empty-state">Nenhum post ainda.</div>
+                </div>
+            </div>
+
+            <div id="tab-portfolio" class="tab-panel">
+                <div class="grid-container" id="grid-portfolio">
+                    <div class="empty-state">Nenhum projeto no portfólio ainda.</div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <button id="floating-add-btn" class="floating-btn">+</button>
+    <input type="file" id="upload-item-input" accept="image/*" style="display: none;">
+
+    <script src="profile.js"></script>
+</body>
+</html>

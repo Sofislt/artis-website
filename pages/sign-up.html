@@ -14,24 +14,25 @@
         <div class="logo"><img src="../assets/olho-que-ve-tudo.png" alt="Logo Artis"></div>
         <nav class="navigation">
             <a href="../index.html">Home</a>
-            <a href="#">Explore</a>
-            <a href="#">Feed</a>
-            <a href="#">Perfil</a>
-            <a href="pages/sign-up.html" class="btn-login">Login</a>
+            <a href="explore.html">Explore</a>
+            <a href="feed.html">Feed</a>
+            <a href="profile.html">Perfil</a>
+            <a href="exercise.html">Exercício</a>
+            <a href="sign-up.html" class="btn-login">Login</a>
         </nav>
     </header>
     <div class="wrapper">
         <div class="form-box login">
             <h2>Login</h2>
-            <form action="#">
+            <form id="input-login-form" action="#">
                 <div class="input-box">
                     <span class="icon"><ion-icon name="mail"></ion-icon></span>
-                    <input type="email" id="email"required>
+                    <input type="email" id="login-email"required>
                     <label>Email</label>
                 </div>
                 <div class="input-box">
                     <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
-                    <input type="password" id="senha" required>
+                    <input type="password" id="login-password" required>
                     <label>Senha</label>
                 </div>
                 <div class="forgot">
@@ -39,41 +40,42 @@
                 </div>
                 <br>
                 <div class="caixa">
-                    <button type="submit" class="btn" onClick="validarLogin(); return false;">Login</button>
+                    <button type="submit" class="btn">Login</button>
                     <button type="reset" class="btn-limpar">Limpar</button>
                 </div>
                 <div class="login-register">
                     <p>Ainda não tem uma conta? <a href="#" class="register-link">Cadastre-se!</a></p>
                 </div>
+                <p id="msg-submit-login"></p>
             </form>
         </div>
 
         <div class="form-box register">
             <h2>Cadastro</h2>
-            <form action="#">
+            <form id="input-register-form" action="#">
                 <div class="input-box">
                     <span class="icon">
                         <ion-icon name="person"></ion-icon>
                     </span>
-                    <input type="text" required>
+                    <input id="register-username" type="text" required>
                     <label>Usuário</label>
                 </div>
                 <div class="input-box">
                     <span class="icon">
                         <ion-icon name="mail"></ion-icon>
                     </span>
-                    <input type="email" required>
+                    <input id="register-email" type="email" required>
                     <label>Email</label>
                 </div>
                 <div class="input-box">
                     <span class="icon">
                         <ion-icon name="lock-closed"></ion-icon>
                     </span>
-                    <input type="password" required>
+                    <input id="register-password" type="password" required>
                     <label>Senha</label>
                 </div>
                 <div class="forgot">
-                    <label><input type="checkbox">Eu li e concordo com os termos de uso</label>
+                    <label><input id="termos" type="checkbox">Eu li e concordo com os termos de uso</label>
                 </div>
                 <br>
                 <div class="caixa">
@@ -83,23 +85,14 @@
                 <div class="login-register">
                     <p>Já tem uma conta? <a href="#" class="login-link">Login</a></p>
                 </div>
+                <p id="msg-erro-termos" style="color: red;"></p>
+                <p id="msg-submit-sucess" style="color: green;"></p>
             </form>
         </div>
     </div>
 
-    <script>
-        const wrapper = document.querySelector('.wrapper');
-        const loginLink = document.querySelector('.login-link');
-        const registerLink = document.querySelector('.register-link');
-
-        registerLink.addEventListener('click', ()=> {
-            wrapper.classList.add('active');
-        })
-
-        loginLink.addEventListener('click', ()=> {
-            wrapper.classList.remove('active');})
-    </script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="sign-up.js"></script>
 </body>
 </html>
